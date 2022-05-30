@@ -1,20 +1,16 @@
 const canvas = document.querySelector('.canvas');
 const ctx = canvas.getContext('2d');
-
 const CANVAS_WIDTH = canvas.width = 800;
 const CANVAS_HEIGHT = canvas.height = 600;
-const playerImage = new Image();
-playerImage.src = 'Girl.png';
-const spriteWidth = 64;
-const spriteHeight = 64;
-
-let frameX = 1;
-let frameY = 20;
-let gameFrame = 0;
-let action = 'stop';
 const staggerFrames = 3;
 const frameArr = [7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 9, 6, 6, 6, 6, 13, 13, 13, 13, 0];
+const playerImage = new Image();
 
+playerImage.src = 'Girl.png';
+
+let step = 3;
+let gameFrame = 0;
+let action = 'stop';
 class KeyControls {
   constructor(keysList) {
     this.keysList = keysList
@@ -31,8 +27,8 @@ class KeyControls {
 }
 class Player {
   constructor() {
-    this.x = 0;
-    this.y = 0;
+    this.x = 368;
+    this.y = 268;
     this.Width = 64;
     this.Height = 64;
     this.frameX = 1;
@@ -65,14 +61,7 @@ class Player {
     ctx.drawImage(playerImage, this.frameX * this.Width, this.frameY * this.Height, this.Width, this.Height, this.x, this.y, this.Width, this.Height);
   }
 }
-
 const player1 = new Player();
-
-let x = 0;
-let y = 0;
-let step = 3;
-let stopFrame = 0;
-
 function animate() {
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
   player1.update();
