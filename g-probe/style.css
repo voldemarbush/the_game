@@ -1,0 +1,14 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+.canvas{
+  border: 2px solid #000;
+  position: absolute;
+  width: 800px;
+  height: 600px;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  background:rgb(58, 145, 0); 
+}
