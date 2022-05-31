@@ -48,6 +48,10 @@ class Player {
     } else {
       this.standBy = false;
     }
+    if (this.x < -18) this.x = -18;
+    if (this.y < -15) this.y = -15;
+    if (this.x > 755) this.x = 755;
+    if (this.y > 535) this.y = 535;
     if (gameFrame % staggerFrames == 0 && this.standBy == false) {
       if (this.frameX < frameArr[this.frameY] - 1) {
         this.frameX++;
